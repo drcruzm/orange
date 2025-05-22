@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orange Data Mining</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #FFF8F0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #FF8C00;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #FF6D00;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 5px;
+        }
+        
+        p, ul {
+            margin-bottom: 15px;
+        }
+        
+        .feature-list {
+            background-color: #FFF0E0;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #FF8C00;
+            margin: 20px 0;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        .example {
+            background-color: #FFEBCD;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .example h3 {
+            color: #FF5722;
+            margin-bottom: 15px;
+        }
+        
+        .example ol {
+            padding-left: 20px;
+        }
+        
+        .example ol li {
+            margin-bottom: 8px;
+        }
+        
+        .file-section {
+            background-color: #FFF0E0;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FF7417;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        }
+        
+        .btn:hover {
+            background-color: #FF5722;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-upload {
+            background-color: #FF8C00;
+        }
+        
+        .btn-download {
+            background-color: #FF6D00;
+        }
+        
+        .btn-send {
+            background-color: #FF5722;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">🍊</div>
+            <h1>Orange Data Mining</h1>
+            <p>Software de código abierto para minería de datos y aprendizaje automático</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section>
+            <p>Orange es una herramienta de software de código abierto para el análisis de datos, aprendizaje automático y minería de datos desarrollada por la Universidad de Ljubljana en Eslovenia. Su característica más distintiva es su interfaz de programación visual, que permite crear flujos de trabajo de análisis de datos sin necesidad de escribir código.</p>
+            
+            <h2>Características principales</h2>
+            <div class="feature-list">
+                <ul>
+                    <li><strong>Interfaz visual</strong>: Usa "widgets" (componentes visuales) que se conectan entre sí para crear flujos de trabajo.</li>
+                    <li><strong>Multiplataforma</strong>: Disponible para Windows, macOS y Linux.</li>
+                    <li><strong>Compatible con Python</strong>: Aunque su interfaz es visual, también se puede utilizar como biblioteca de Python.</li>
+                    <li><strong>Extensible</strong>: Cuenta con complementos para análisis de texto, bioinformática, análisis de imágenes, entre otros.</li>
+                </ul>
+            </div>
+            
+            <h2>¿Cómo se usa Orange?</h2>
+            <p>El flujo de trabajo básico en Orange consiste en:</p>
+            <ol>
+                <li><strong>Cargar datos</strong>: Importar datos desde archivos CSV, Excel, bases de datos, etc.</li>
+                <li><strong>Explorar y visualizar</strong>: Examinar los datos mediante tablas, gráficos y estadísticas.</li>
+                <li><strong>Preprocesar datos</strong>: Filtrar, transformar y limpiar los datos.</li>
+                <li><strong>Analizar</strong>: Aplicar algoritmos de minería de datos y aprendizaje automático.</li>
+                <li><strong>Evaluar resultados</strong>: Valorar el rendimiento de los modelos.</li>
+            </ol>
+            
+            <h2>Ejemplos prácticos de uso</h2>
+            
+            <div class="example">
+                <h3>Ejemplo 1: Clasificación de datos</h3>
+                <p>Imaginemos que queremos predecir si un cliente solicitará un préstamo bancario:</p>
+                <ol>
+                    <li><strong>Cargar datos</strong>: Arrastra el widget "File" al lienzo y carga un archivo CSV con datos de clientes.</li>
+                    <li><strong>Visualizar datos</strong>: Conecta el widget "File" con un widget "Data Table" para ver los datos en formato tabular.</li>
+                    <li><strong>Explorar relaciones</strong>: Conecta también a un widget "Scatter Plot" para visualizar relaciones entre variables.</li>
+                    <li><strong>Preparar modelo</strong>: Conecta a un widget "Tree" para crear un árbol de decisión.</li>
+                    <li><strong>Visualizar modelo</strong>: Conecta el widget "Tree" a un widget "Tree Viewer" para ver el árbol generado.</li>
+                    <li><strong>Evaluar</strong>: Conecta también a un widget "Test & Score" para evaluar la precisión del modelo.</li>
+                </ol>
+            </div>
+            
+            <div class="example">
+                <h3>Ejemplo 2: Segmentación de clientes</h3>
+                <p>Para segmentar clientes según su comportamiento de compra:</p>
+                <ol>
+                    <li><strong>Cargar datos</strong>: Usar el widget "File" para cargar datos de transacciones.</li>
+                    <li><strong>Preprocesar</strong>: Conectar a un widget "Preprocess" para normalizar variables numéricas.</li>
+                    <li><strong>Agrupar</strong>: Conectar a un widget "k-Means" para realizar clustering.</li>
+                    <li><strong>Visualizar clusters</strong>: Conectar a un widget "Scatter Plot" y colorear por cluster.</li>
+                    <li><strong>Analizar perfiles</strong>: Conectar a un widget "Box Plot" para ver características de cada grupo.</li>
+                </ol>
+            </div>
+            
+            <div class="example">
+                <h3>Ejemplo 3: Análisis de sentimientos en textos</h3>
+                <p>Para analizar opiniones de clientes:</p>
+                <ol>
+                    <li><strong>Cargar datos</strong>: Usar el widget "Corpus" para importar textos.</li>
+                    <li><strong>Preprocesar texto</strong>: Conectar a "Preprocess Text" para tokenizar, eliminar stopwords, etc.</li>
+                    <li><strong>Crear características</strong>: Conectar a "Bag of Words" para convertir texto en vectores.</li>
+                    <li><strong>Visualizar</strong>: Conectar a "Word Cloud" para ver términos más frecuentes.</li>
+                    <li><strong>Clasificar</strong>: Conectar a "Logistic Regression" para predecir sentimiento.</li>
+                    <li><strong>Evaluar</strong>: Conectar a "Confusion Matrix" para ver resultados.</li>
+                </ol>
+            </div>
+            
+            <h2>Ventajas de Orange para minería de datos</h2>
+            <div class="feature-list">
+                <ul>
+                    <li><strong>Facilidad de uso</strong>: No requiere conocimientos de programación.</li>
+                    <li><strong>Visualización integrada</strong>: Permite explorar datos visualmente en cada paso.</li>
+                    <li><strong>Interactividad</strong>: Los cambios se reflejan instantáneamente en todo el flujo de trabajo.</li>
+                    <li><strong>Documentación extensa</strong>: Tutoriales y ejemplos disponibles en línea.</li>
+                </ul>
+            </div>
+            
+            <p>Para empezar a usar Orange, solo necesitas descargarlo desde su sitio web oficial (orange.biolab.si), instalarlo y comenzar a arrastrar widgets al lienzo para crear tu primer flujo de trabajo de análisis de datos.</p>
+        </section>
+        
+        <section class="file-section">
+            <h2>Gestión de Archivos</h2>
+            <p>Utiliza estos botones para trabajar con tus archivos de datos para Orange:</p>
+            
+            <div class="button-container">
+                <button class="btn btn-upload" onclick="alert('Funcionalidad de subir archivo')">Subir Archivo</button>
+                <button class="btn btn-download" onclick="alert('Funcionalidad de bajar archivo')">Bajar Archivo</button>
+                <button class="btn btn-send" onclick="alert('Funcionalidad de enviar archivo')">Enviar Archivo</button>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Esta página es una demostración informativa sobre Orange Data Mining. Para más información visita el sitio oficial en <a href="https://orangedatamining.com" style="color: #FF8C00;">orangedatamining.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>
