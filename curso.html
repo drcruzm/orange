@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIND4417 - Minería de Datos</title>
+    <style>
+        :root {
+            --primary-color: #F08A24;
+            --secondary-color: #6B59B4;
+            --accent-color: #3E92CC;
+            --light-bg: #F5F5F5;
+            --dark-text: #333333;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-box input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        
+        .search-box button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 80px 0;
+            background-image: linear-gradient(135deg, var(--secondary-color) 0%, #8675D6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            width: 50%;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            background-image: url('https://via.placeholder.com/600x400');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center right;
+            z-index: 1;
+        }
+        
+        /* Course Info Section */
+        .course-info {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .info-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 25px;
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            transition: transform 0.3s;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        /* Curriculum Section */
+        .curriculum {
+            padding: 60px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .module-container {
+            margin-bottom: 40px;
+        }
+        
+        .module-header {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 15px 20px;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .module-content {
+            background-color: var(--white);
+            border: 1px solid #ddd;
+            border-top: 0;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .module-content ul {
+            list-style-position: inside;
+            margin-bottom: 20px;
+        }
+        
+        .module-content li {
+            margin-bottom: 8px;
+        }
+        
+        .download-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .download-btn:hover {
+            background-color: #D87A14;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+        
+        /* Utility Classes */
+        .mt-20 {
+            margin-top: 20px;
+        }
+        
+        /* Font Awesome Icons (you would need to include Font Awesome) */
+        .fas {
+            font-family: 'FontAwesome';
+        }
+    </style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQ1IiBmaWxsPSIjRjA4QTI0Ii8+CjxwYXRoIGQ9Ik0zMCA0MEg3ME0zMCA1MEg3ME0zMCA2MEg3MCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==" alt="Logo">
+                    <h1>Minería de Datos</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#informacion">Información</a>
+                    <a href="#temario">Temario</a>
+                    <a href="#recursos">Recursos</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>IIND4417 Minería de Datos</h2>
+                <p>Desarrolla habilidades para identificar patrones y extraer conocimiento valioso de conjuntos de datos masivos.
+                     Aprenderás a aplicar algoritmos y técnicas avanzadas para resolver problemas complejos del mundo real.</p>
+            </div>
+            <div class="hero-image"></div>
+        </div>
+    </section>
+
+    <!-- Course Info Section -->
+    <section id="informacion" class="course-info">
+        <div class="container">
+            <h2 class="section-title">Información del Curso</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Aprendizaje</h3>
+                    <p>Aprenderás a identificar problemas y seleccionar los métodos analíticos adecuados para realizar análisis estadísticos pertinentes en grandes conjuntos de datos.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Desarrollo de Proyectos</h3>
+                    <p>Desarrollarás proyectos de minería de datos, obteniendo relaciones entre variables e identificando patrones de comportamiento en sistemas asociados.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Manejo de Datos Masivos</h3>
+                    <p>Identificarás las dificultades que se presentan con el uso de bases de datos masivas y aprenderás a diferenciar la información requerida para distintos tipos de análisis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section id="temario" class="curriculum">
+        <div class="container">
+            <h2 class="section-title">Contenido del Curso</h2>
+            
+            <!-- Module 1 -->
+            <div class="module-container">
+                <div class="module-header">
+                    <h3>1. Introducción a herramientas de minería de datos</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Introducción a las herramientas de minería de datos</li>
+                        <li>Requerimientos mínimos</li>
+                        <li>Ventajas y desventajas</li>
+                    </ul>
+                    <p>En esta unidad conocerás las principales herramientas de minería de datos como WEKA, Orange, y Python 
+                        con sus bibliotecas para análisis de datos.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar material</a>
+                </div>
+            </div>
+            
+            <!-- Module 2 -->
+            <div class="module-container">
+                <div class="module-header">
+                    <h3>2. Acceso y ensayo de los datos</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Creación de un proyecto</li>
+                        <li>Definición de la fuente de datos</li>
+                        <li>Validación de la fuente de datos</li>
+                        <li>Limpieza de datos</li>
+                        <li>Integración y transformación</li>
+                        <li>Reducción de datos</li>
+                    </ul>
+                    <p>Aprenderás a preparar y limpiar datos para su posterior análisis, un paso fundamental en todo proyecto de minería de datos.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar material</a>
+                </div>
+            </div>
+            
+            <!-- Module 3 -->
+            <div class="module-container">
+                <div class="module-header">
+                    <h3>3. Investigación de patrones en bases de datos</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Análisis de clúster</li>
+                        <li>Segmentación no supervisada de mercados</li>
+                        <li>Análisis de asociaciones y secuencias de compras</li>
+                    </ul>
+                    <p>Descubrirás cómo identificar patrones y relaciones ocultas en grandes conjuntos de datos utilizando técnicas no supervisadas.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar material</a>
+                </div>
+            </div>
+            
+            <!-- Module 4 -->
+            <div class="module-container">
+                <div class="module-header">
+                    <h3>4. Modelación predictiva: Árboles de decisión</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Estructura de los árboles de decisión</li>
+                        <li>Análisis de los árboles</li>
+                        <li>Podado de los árboles</li>
+                        <li>Crecimiento autónomo de los árboles</li>
+                    </ul>
+                    <p>Los árboles de decisión son una de las técnicas más importantes en minería de datos. Aprenderás a construirlos, interpretarlos y optimizarlos.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar material</a>
+                </div>
+            </div>
+            
+            <!-- Module 5 -->
+            <div class="module-container">
+                <div class="module-header">
+                    <h3>5. Modelación predictiva: Análisis de regresión</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Selección de las variables independientes</li>
+                        <li>Optimización del problema de regresión</li>
+                        <li>Validación de supuestos del modelo de regresión</li>
+                        <li>Transformación de las variables de entrada</li>
+                        <li>Variables de entrada categóricas</li>
+                        <li>Tratamiento no lineal: Regresiones polinomiales</li>
+                    </ul>
+                    <p>Los modelos de regresión permiten predecir valores continuos. Conocerás las técnicas para construir modelos robustos y precisos.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar material</a>
+                </div>
+            </div>
+            
+            <!-- Module 6 -->
+            <div class="module-container">
+                <div class="module-header">
+                    <h3>6. Modelación flexible: Redes neuronales</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Selección de las variables de entrada</li>
+                        <li>Entrenamiento del modelo</li>
+                        <li>Validación del modelo</li>
+                        <li>Otras herramientas de modelación</li>
+                    </ul>
+                    <p>Las redes neuronales ofrecen gran flexibilidad para modelar relaciones complejas. Aprenderás los fundamentos y aplicaciones prácticas.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar material</a>
+                </div>
+            </div>
+            
+            <!-- Module 7 -->
+            <div class="module-container">
+                <div class="module-header">
+                    <h3>7. Evaluación del modelo</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Estadígrafos de ajuste del modelo</li>
+                        <li>Gráficos</li>
+                        <li>Ajuste para muestras separadas</li>
+                        <li>Matrices de ganancia</li>
+                        <li>Selección de modelos</li>
+                    </ul>
+                    <p>Es crucial saber evaluar la calidad de nuestros modelos. Conocerás diversas métricas y técnicas para validar el desempeño de tus modelos.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar material</a>
+                </div>
+            </div>
+            
+            <!-- Module 8 -->
+            <div class="module-container">
+                <div class="module-header">
+                    <h3>8. Implementación de los modelos</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Calificación interna de las bases de datos</li>
+                        <li>Módulo de códigos de clasificación</li>
+                        <li>Desempeño del modelo</li>
+                    </ul>
+                    <p>Aprenderás a implementar los modelos desarrollados en entornos reales para obtener predicciones útiles.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar material</a>
+                </div>
+            </div>
+            
+            <!-- Module 9 -->
+            <div class="module-container">
+                <div class="module-header">
+                    <h3>9. Tópicos especiales</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="module-content">
+                    <ul>
+                        <li>Ensamblado de los modelos</li>
+                        <li>Selección de variables</li>
+                        <li>Consolidación de las variables de entrada categóricas</li>
+                        <li>Modelos sustitutos</li>
+                    </ul>
+                    <p>Explorarás técnicas avanzadas como el ensamblado de modelos que permiten mejorar significativamente el rendimiento predictivo.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar material</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="recursos" class="course-info">
+        <div class="container">
+            <h2 class="section-title">Recursos Adicionales</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Libros de Referencia</h3>
+                    <p>Accede a nuestra bibliografía recomendada con los mejores libros sobre minería de datos y aprendizaje automático.</p>
+                    <a href="#" class="download-btn mt-20">Ver bibliografía</a>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Software y Herramientas</h3>
+                    <p>Enlaces para descargar e instalar las herramientas
+                         que utilizaremos durante el curso: Orange Data Mining.</p>
+                    <a href="https://orangedatamining.com/download/" class="download-btn mt-20" 
+                    target="_blank" rel="noopener noreferrer">Descargar software</a>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Datasets de Práctica</h3>
+                    <p>Conjuntos de datos para practicar las técnicas aprendidas durante el curso. Incluye datos de diversos dominios.</p>
+                    <a href="#" class="download-btn mt-20">Descargar datasets</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Contacto</a>
+                <a href="#">Ayuda</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 IIND4417 Minería de Datos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple toggle for module content
+        document.querySelectorAll('.module-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                const icon = header.querySelector('i');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+    </script>
+</body>
+</html>
